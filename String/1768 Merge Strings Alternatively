@@ -1,0 +1,30 @@
+class Solution {
+    public String mergeAlternately(String word1, String word2) {
+        int length = (word1.length() > word2.length()) ? word1.length() : word2.length();
+        StringBuilder s = new StringBuilder();
+        for (int i = 0; i < length; i++){
+            if(i <word1.length()){
+                s.append(word1.charAt(i));
+            }
+            if(i <word2.length()){
+                s.append(word2.charAt(i));
+            }
+        }
+        return s.toString();
+
+    }
+}
+
+
+Heres my approach to this question. 
+First, I wanted a way to find out what the longer string was. I did this with a
+ternery operator to quickly get the longer strings length. 
+
+I then used a string builder since it easily allows you to edit strings in place. 
+
+I used a for loop and appended each letter one by one, but before doing so, i
+checked if the index was smaller than the length. this makes sure we do not get 
+any index out of bound errors. if we reach a larger i than a strings length, that
+code for appending that strings letter is skipped. 
+
+    i rate this question a 2/10 on difficulty. 
