@@ -1,0 +1,43 @@
+    class Solution {
+    public String gcdOfStrings(String str1, String str2) {
+
+        String a = str1.concat(str2);
+        String b = str2.concat(str1);
+        if (!a.equals(b)){
+            return ""; 
+        }
+        else{
+            int gcd;
+            if (str1.length() < str2.length()){
+                gcd = findGCD(str2.length(), str1.length());
+            } else{
+                gcd = findGCD(str1.length(), str2.length());
+            }
+            return str1.substring(0,gcd);
+        }
+    }   
+    public int findGCD(int a, int b){
+        int x = b;
+        while (x != 0){ 
+            x = a % b; 
+            a = b;
+            b = x;
+        }
+        return a; 
+    }
+}
+
+This question took me a bit of time to be honest. I was stuck and resorted to using
+AI to give me hints to the solution.
+
+First i had to check if the strings joined together were both the same. if they
+were not, then there would be no gcd string that would be able to divide them both. 
+
+Then i found the GCD with the eucladian algorithm. this helps becuase the string
+that makes up both strings needs to be GCD length and a subset of either string. 
+
+then i just returned a substring of either string shorter or longer that was the 
+length of the gcd. 
+
+    i rate this question 7/10 on difficulty
+    this question took me 50 minutes to solve (with the help of AI)

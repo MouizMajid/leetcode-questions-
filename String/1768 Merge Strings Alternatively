@@ -28,3 +28,4 @@ any index out of bound errors. if we reach a larger i than a strings length, tha
 code for appending that strings letter is skipped. 
 
     i rate this question a 2/10 on difficulty. 
+    time took to complete: 20 minutes
