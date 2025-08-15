@@ -15,7 +15,7 @@ class Solution {
     }
 }
 
-
+/* 
 Heres my approach to this question. 
 First, I wanted a way to find out what the longer string was. I did this with a
 ternery operator to quickly get the longer strings length. 
@@ -29,3 +29,5 @@ code for appending that strings letter is skipped.
 
     i rate this question a 2/10 on difficulty. 
     time took to complete: 20 minutes
+
+    */

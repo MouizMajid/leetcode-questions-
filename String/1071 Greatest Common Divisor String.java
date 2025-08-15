@@ -1,4 +1,4 @@
-    class Solution {
+class Solution {
     public String gcdOfStrings(String str1, String str2) {
 
         String a = str1.concat(str2);
@@ -27,6 +27,8 @@
     }
 }
 
+
+/* 
 This question took me a bit of time to be honest. I was stuck and resorted to using
 AI to give me hints to the solution.
 
@@ -41,3 +43,4 @@ length of the gcd.
 
     i rate this question 7/10 on difficulty
     this question took me 50 minutes to solve (with the help of AI)
+*/
