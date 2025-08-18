@@ -44,6 +44,6 @@ class Solution{
     then i iterated through the list backwards and added each word to a 
         stringbuilder
 
-    i rate this question a 5/10 on difficulty
-    time took to complete: 60 minutes 
+    i rate this question a 5/10 on difficulty 
+    time took to complete: 60 minutes
  */
