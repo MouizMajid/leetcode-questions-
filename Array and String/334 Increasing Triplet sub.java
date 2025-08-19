@@ -21,6 +21,8 @@ class Solution {
 }
 
 /*
+
+Date: 8/19/2025
  * My approach to this question was to iterate through the array and keep track of the smallest
  * and middle values. if i find a number that is larger than the middle value, i return true.
  * 
