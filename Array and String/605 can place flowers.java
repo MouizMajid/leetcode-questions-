@@ -1,32 +1,49 @@
 class Solution {
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
+        // Special case: if the flowerbed has only 1 spot
         if(flowerbed.length == 1){
-            if(flowerbed[0] == 0 || n ==0){
+            // If the spot is empty (0), or if we don’t need to place any flowers,
+            // then it's possible.
+            if(flowerbed[0] == 0 || n == 0){
                 return true;
             }
         }
         else{
+            // General case: loop through the entire flowerbed
             for (int i = 0; i < flowerbed.length; i++){
+                
+                // Case 1: First slot (left edge).
+                // Can place a flower only if it’s empty AND the next slot is empty.
                 if(i == 0){
-                    if(flowerbed[i] == 0 && flowerbed[i+1] ==0){
+                    if(flowerbed[i] == 0 && flowerbed[i+1] == 0){
+                        flowerbed[i] = 1; // Place flower
+                        n--;              // Decrement flowers left to place
+                    }
+                }
+
+                // Case 2: Last slot (right edge).
+                // Can place a flower only if it’s empty AND the previous slot is empty.
+                else if (i == flowerbed.length-1){
+                    if(flowerbed[i] == 0 && flowerbed[i-1] == 0){
                         flowerbed[i] = 1;
                         n--;
                     }
                 }
-                else if (i == flowerbed.length-1){
-                    if(flowerbed[i] == 0 && flowerbed[i-1] ==0){
-                        flowerbed[i] = 1;
-                        n--;
-                    }
-                }else{
-                    if(flowerbed[i] == 0 && flowerbed[i+1] ==0  && flowerbed[i-1] ==0){
+
+                // Case 3: Middle slots.
+                // Can place a flower if this slot is empty AND both neighbors are empty.
+                else{
+                    if(flowerbed[i] == 0 && flowerbed[i+1] == 0 && flowerbed[i-1] == 0){
                         flowerbed[i] = 1;
                         n--;
                     }
                 }
             }
         }  
-        if (n<=0){
+
+        // After placing as many flowers as possible,
+        // check if we have placed enough.
+        if (n <= 0){
             return true; 
         }else{
             return false;
@@ -34,27 +51,44 @@ class Solution {
     }
 }
 
+
 /*
- heres my approach. so first i need to check if the length of the flowerbed is 1.
- if it is, i need to check if the flowerbed is 0 or if the number of flowers to 
- place is 0. if either of those are true, i return true.
+    Rubber Duck Walkthrough (Explaining the Thought Process):
 
-if it isnt 1, i need to iterate through the entire flowerbed and check it.
-first i checked the edge cases, if i could place flowers there. i  subtracted
-n by 1 everytime i could place a flower and also placed the flower by editing the 
-array at the index, tihis is so i can truely make sure that the flowers can fit. 
+    - Problem: We need to decide if we can place "n" flowers into the flowerbed,
+      with the rule that no two flowers can be adjacent.
 
-next i checked the middle cases, if i could place flowers there. i checked both
-sides of a valid index and if both sides are 0, i placed the flower and subtracted 1
-from n. 
+    - Step 1: Special case check.
+        If the flowerbed has only 1 slot:
+            • If that slot is empty, OR we don’t need to place any flowers,
+              the answer is true.
 
-after i iterated through the entire flowerbed, i checked if n was 0 or less. if it was 
-negative that just means we can place even more flowers than we need to.
-if it was, i returned true. if it wasnt, i returned false.
+    - Step 2: Iterate through the flowerbed.
+        At each index, we need to decide if a flower can be placed:
+        
+        • Edge cases:
+            - First slot: check only itself and the next slot.
+            - Last slot: check only itself and the previous slot.
+        
+        • Middle slots:
+            - Slot must be empty, and both neighbors must also be empty.
+        
+        If a flower can be placed:
+            - Place it (set flowerbed[i] = 1).
+            - Decrement n (one fewer flower left to place).
 
-    i rate this question a 4/10 on difficulty. it woud need some deeper logical
-    thinking if i wanted to solve it in a lower memory usage. 
+    - Step 3: After looping:
+        If n <= 0, it means we’ve placed all required flowers (or even more).
+        Otherwise, return false.
 
-    time took to complete: 20 minutes
+    - Why this works:
+        By actually "placing" flowers in the array as we go,
+        we prevent overlapping placements and ensure spacing rules are followed.
 
- */
+    - Complexity:
+        Time: O(n), since we scan the array once.
+        Space: O(1), since we modify the array directly.
+
+    Difficulty rating: 4/10
+    Time spent: ~20 minutes
+*/
