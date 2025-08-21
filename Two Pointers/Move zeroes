@@ -1,0 +1,38 @@
+class Solution {
+    public void moveZeroes(int[] nums) {
+        // start with a pointer at the beginning of the array
+        int pointer = 0; 
+
+        // iterate through the array
+        for(int i = 0; i < nums.length; i++){
+            // if we find a non-zero element, we place it at the pointer index
+            // and increment the pointer. this moves it up in the array only when we find a non-zero
+            // element, effectively moving all non-zero elements to the front
+            if(nums[i] != 0){
+                nums[pointer] = nums[i];
+                pointer++;
+            }
+        }
+        // fill the rest of the array with zeros after we are done first iteration
+        // this works because pointer now points to the index after the last non-zero element
+        while(pointer < nums.length){
+            nums[pointer] = 0;
+            pointer++;
+        }
+        
+    }
+}
+
+/*
+    This was pretty easy. First i tried using two arrays and quickly got the answer. I wanted
+    to do it in one array by modifying it in place. 
+    to do this, I used a pointer that starts at the beginning of the array and iterates through it.
+    Whenever it finds a non-zero element, it places it at the pointer index and increments the
+    pointer. This effectively moves all non-zero elements to the front of the array.
+    After the first iteration, the pointer will point to the index after the last non-zero element  
+    and we can fill the rest of the array with zeros.
+
+    i rate this question 2/10 for difficulty.
+    took me 30 minutes to solve it.
+
+ */
