@@ -8,7 +8,7 @@ class Solution {
             // if we find a non-zero element, we place it at the pointer index
             // and increment the pointer. this moves it up in the array only when we find a non-zero
             // element, effectively moving all non-zero elements to the front
-            if(nums[i] != 0){
+            if(nums[i] != 0 && i != pointer){
                 nums[pointer] = nums[i];
                 pointer++;
             }

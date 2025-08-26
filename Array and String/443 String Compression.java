@@ -52,3 +52,11 @@ class Solution {
         return sCount; 
     }
 }
+
+
+/*
+    FIX 
+
+    i rate this question 5/10 for difficulty.
+    time taken: 1 hour
+ */
