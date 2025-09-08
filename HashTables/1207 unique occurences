@@ -1,0 +1,28 @@
+class Solution {
+    public boolean uniqueOccurrences(int[] arr) {
+        Map<Integer, Integer> freq = new HashMap<>();
+        for (int x : arr) {
+            freq.put(x, freq.getOrDefault(x, 0) + 1);
+        }
+
+        Set<Integer> s = new HashSet<>();
+        for (int x : freq.values()) {
+            s.add(x);
+        }
+
+        return freq.size() == s.size();
+    }
+}
+
+/*
+    I gave up on this question. The solution has been copied. 
+    Here is the explanation of the solution.
+
+    1. Create a frequency map to count occurrences of each integer in the array.
+    2. Use a HashSet to track unique occurrence counts. 
+    3. If the size of the frequency map (number of unique integers) equals the size of 
+        the HashSet (number of unique occurrence counts), then all occurrences are unique.
+    4. Return true if they are equal, otherwise return false.
+
+
+ */
